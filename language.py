@@ -1,4 +1,5 @@
 from collections import Counter
+import pandas as pd
 text = "This is my test text. We're keeping this text short to keep things manageable."
 def count_words(text):
     """
@@ -50,3 +51,8 @@ if count_words(text) is count_words_fast(text):
     sample_text = text[ind :ind + 1000]
     sample_text
 '''
+
+table = pd.DataFrame(columns = ("name", "age"))
+table.loc[1] = "James", 22
+table.loc[2] = "Jess", 32
+print(table)
