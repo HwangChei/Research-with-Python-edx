@@ -43,7 +43,13 @@ data.loc[data["count"] <= 10, "frequency"] = "infrequent"
 data.loc[data["count"] == 1,  "frequency"] = "unique"
 
 sub_data = pd.DataFrame({
-    "language" : [i for i in range(len(language)) for j in range(len(counted_text))],
-    "frequency" : ["frequent" if count > 10 else "infrequent" if count <= 10 and count > 1 else "unique" for count in list(counted_text.values())]
+    "language" : [language for j in list(counted_text.values())],
+    "frequency" : ["frequent" if count > 10 else "infrequent" if count <= 10 and count > 1 else "unique" for count in list(counted_text.values())],
+    "mean_word_length" : [np.mean(len(count)) for count in list(counted_text.keys())],
+    "num_words" : [i for i in list(counted_text.values())]
+   
+    
 })
-print(sub_data)
+
+frequent_rows = data[data["frequency"] == "infrequent"]
+print(np.mean(frequent_rows ["length"]))
