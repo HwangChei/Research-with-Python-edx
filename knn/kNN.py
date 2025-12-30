@@ -6,15 +6,7 @@ def distance(p1,p2):
 #loop over all points
     #compute the distance between point p and every other point
 # sort distances and return those k points that are nearest to point p
-def find_nearest_neighbors(p, points, k=5):
-    '''
-    Find the k nearest nrighbors of point p and return their indices
-    '''
-    distances = np.zeros(points.shape[0])
-    for i in range(len(distances)):
-        distances[i] = distance(p, points[i])
-    ind = np.argsort(distances)
-    return ind[:k]
+
 points = np.array([[1,1],[1,2],[1,3],[2,1],[2,2],[2,3],[3,1],[3,2],[3,3]])
 p = np.array([2.5,2])
 import matplotlib.pyplot as plt
