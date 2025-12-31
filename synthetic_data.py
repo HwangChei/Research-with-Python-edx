@@ -67,5 +67,21 @@ def make_prediction_grid(predictors, outcomes, limits, h, k):
     return(xx,yy, prediction_grid)
 seasons = ["spring", "summer", "fall", "winter"]
 print(list(enumerate(seasons)))
+
+def generate_synth_data(n=50):
+    '''
+    Create 2 sets of points from bivariate normal distributions.
+    '''
+    points = np.concatenate((ss.norm(0,1).rvs((n,2)),ss.norm(1,1).rvs((n,2))), axis =0)
+    outcomes = np.concatenate((np.repeat(0,n), np.repeat(1,n)))
+    return (points, outcomes)
+
+
 for ind, season in enumerate(seasons):
     print(ind, season)
+
+predictors,outcomes = generate_synth_data()
+
+k = 5, filename="knn_synth_5.pdf"; limits = (-3,4,-3,4); h=0.1
+(xx,yy,prediction_grid) = make_prediction_grid(predictors, outcomes, limits, h, k)
+plot_prediction_grid(xx, yy , prediction_grid, filename)
