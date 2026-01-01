@@ -104,4 +104,5 @@ knn = KNeighborsClassifier(n_neighbors= 5)
 knn.fit(predictors, outcomes)
 sk_predictions = knn.predict(predictors)
 
-my_predictions = np.array([knn_predict(p, predictors, outcomes, k ) for p in predictors ])
+my_predictions = np.array([knn_predict(p, predictors, outcomes, k ) for p in predictors])
+
